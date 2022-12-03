@@ -7,6 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <Compile Include="Composition.fs" />
         <Compile Include="File.fs" />
         <Compile Include="String.fs" />
         <Compile Include="List.fs" />
@@ -16,6 +17,10 @@
         </Content>
         <Compile Include="Day2\Day2.fs" />
         <Content Include="Day2\Input.txt">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Compile Include="Day3\Day3.fs" />
+        <Content Include="Day3\Input.txt">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
         <Compile Include="Program.fs" />
