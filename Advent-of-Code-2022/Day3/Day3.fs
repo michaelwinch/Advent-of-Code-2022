@@ -36,7 +36,8 @@ let getRucksacksFromFile inputFile =
     |> File.readAllLines
     |> List.ofSeq
     |> List.map Rucksack.ofString
-    
+
+// Better solution is to use Set.intersect
 let getIntersectingItemTypes itemTypes1 itemTypes2 : ItemType list =
     itemTypes1
     |> List.filter (fun x -> itemTypes2 |> List.exists (fun y -> x = y))
