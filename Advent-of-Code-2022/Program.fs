@@ -1,2 +1,2 @@
-﻿Day4.Part2.run "Day4/Input.txt"
+﻿Day5.Part2.run "Day5/Input.txt"
 |> printfn "Result: %A"

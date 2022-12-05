@@ -9,8 +9,10 @@
     <ItemGroup>
         <Compile Include="Composition.fs" />
         <Compile Include="File.fs" />
+        <Compile Include="Char.fs" />
         <Compile Include="String.fs" />
         <Compile Include="List.fs" />
+        <Compile Include="Regex.fs" />
         <Compile Include="Day1\Day1.fs" />
         <Content Include="Day1\Input.txt">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -25,6 +27,10 @@
         </Content>
         <Compile Include="Day4\Day4.fs" />
         <Content Include="Day4\Input.txt">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+        <Compile Include="Day5\Day5.fs" />
+        <Content Include="Day5\Input.txt">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </Content>
         <Compile Include="Program.fs" />

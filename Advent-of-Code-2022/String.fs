@@ -10,3 +10,10 @@ let splitAtFirst (separator: string) (str: string) =
     let idx = str.IndexOf separator
     str.Substring(0, idx),
     str.Substring(idx + separator.Length)
+    
+let startsWithNumber (str: string) =
+    str.Substring(0, 1)
+    |> Int32.TryParse
+    |> fst
+    
+let toCharArray (str: string) = str.ToCharArray()

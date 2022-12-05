@@ -12,3 +12,7 @@ let splitAtValue (value: 'a) (list: 'a list) : 'a list list =
                 let acc = (x :: head) :: (List.skip 1 acc)
                 loop acc tail 
     loop [[]] list
+
+let splitAtFirst (separator: 'a) (list: 'a list) =
+    let index = List.findIndex (fun x -> x = separator) list
+    List.splitAt index list
