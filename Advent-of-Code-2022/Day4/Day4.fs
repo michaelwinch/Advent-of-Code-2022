@@ -1,5 +1,7 @@
 module Day4
 
+open System.IO
+
 type SectionId = SectionId of int
 
 type SectionAssignment =
@@ -24,7 +26,7 @@ module SectionAssignmentPair =
 
 let getSectionAssignmentPairsFromFile inputFile =
     inputFile
-    |> File.readAllLines
+    |> File.ReadAllLines
     |> List.ofSeq
     |> List.map SectionAssignmentPair.ofString
     

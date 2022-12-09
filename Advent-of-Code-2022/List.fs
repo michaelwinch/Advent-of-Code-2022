@@ -16,3 +16,6 @@ let splitAtValue (value: 'a) (list: 'a list) : 'a list list =
 let splitAtFirst (separator: 'a) (list: 'a list) =
     let index = List.findIndex (fun x -> x = separator) list
     List.splitAt index list
+    
+let areItemsUnique list =
+    list = List.distinct list

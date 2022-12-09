@@ -1,5 +1,7 @@
 module Day3
 
+open System.IO
+
 type ItemType = ItemType of char
 
 module ItemType =
@@ -33,7 +35,7 @@ module Rucksack =
         
 let getRucksacksFromFile inputFile =
     inputFile
-    |> File.readAllLines
+    |> File.ReadAllLines
     |> List.ofSeq
     |> List.map Rucksack.ofString
 

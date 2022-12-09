@@ -1,5 +1,7 @@
 module Day2
 
+open System.IO
+
 type EncryptedValue = EncryptedValue of string
 
 type Hand =
@@ -77,7 +79,7 @@ module Round =
         
 let getEncryptedValuesFromFile inputFile =
     inputFile
-    |> File.readAllLines
+    |> File.ReadAllLines
     |> List.ofSeq
     |> List.map (fun x -> x.Split " " |> fun x -> EncryptedValue x[0], EncryptedValue x[1])
 

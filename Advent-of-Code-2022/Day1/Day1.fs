@@ -1,5 +1,7 @@
 module Day1
 
+open System.IO
+
 type Calories = Calories of int
     with static member (+) (Calories x, Calories y) = Calories (x + y)
          static member Zero
@@ -20,7 +22,7 @@ module Elf =
         
 let getElvesFromFile inputFile =
         inputFile
-        |> File.readAllLines
+        |> File.ReadAllLines
         |> List.ofSeq
         |> List.splitAtValue ""
         |> List.except [[]]

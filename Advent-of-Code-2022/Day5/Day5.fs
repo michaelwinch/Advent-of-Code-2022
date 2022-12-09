@@ -1,6 +1,7 @@
 module Day5
 
 open System
+open System.IO
 open Regex
 
 type ColumnId = ColumnId of int
@@ -79,7 +80,7 @@ let getInstructions : string list -> Instruction list =
 
 let getDataFromFile inputFile =
     inputFile
-    |> File.readAllLines
+    |> File.ReadAllLines
     |> List.ofSeq
     |> List.splitAtFirst ""
     
