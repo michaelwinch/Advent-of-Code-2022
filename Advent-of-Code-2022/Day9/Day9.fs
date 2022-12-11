@@ -76,8 +76,38 @@ let calculateTailPosition (tail: Position) (head: Position) : Position =
     { X = getPosition tail.X xDelta
       Y = getPosition tail.Y yDelta }
 
+let getPositionsOfKnots numberOfKnots headMovements =
+    let rec loop positionsVisited knotPositions remainingMovements =
+        match remainingMovements with
+        | [] -> positionsVisited
+        | h::t ->
+            if h.Distance = 0 then
+                loop positionsVisited knotPositions t
+            else
+                let knotPositions =
+                    knotPositions
+                    |> List.fold
+                           (fun acc knotPos ->
+                                if List.length acc = 0 then
+                                    let headPosition = calculateHeadPosition knotPos h.Direction
+                                    [headPosition]
+                                else
+                                    let pos = calculateTailPosition knotPos (List.head acc)
+                                    pos :: acc
+                           )
+                           []
+                    |> List.rev
+                let movement = { h with Distance = h.Distance - 1 }
+                loop (knotPositions::positionsVisited) knotPositions (movement::t)
+                
+    loop
+        [ [ for _ in [0..numberOfKnots] -> Position.init ] ]
+        [ for _ in [0..numberOfKnots] -> Position.init ]
+        headMovements
+
 
 module Part1 =
+    // Original part 1 solution before implementing part 2
     let private getTailPositions headMovements =
         let rec loop positionsVisited headPosition tailPosition remainingMovements =
             match remainingMovements with
@@ -95,6 +125,17 @@ module Part1 =
     
     let run () =
         getHeadMovements inputFilePath
-        |> getTailPositions
+        //|> getTailPositions
+        |> getPositionsOfKnots 1
+        |> List.map List.last
+        |> List.distinct
+        |> List.length
+        
+
+module Part2 =
+    let run () =
+        getHeadMovements inputFilePath
+        |> getPositionsOfKnots 9
+        |> List.map List.last
         |> List.distinct
         |> List.length
