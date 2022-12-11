@@ -1,2 +1,2 @@
-﻿Day8.Part2.run()
+﻿Day9.Part1.run()
 |> printfn "Result: %A"
