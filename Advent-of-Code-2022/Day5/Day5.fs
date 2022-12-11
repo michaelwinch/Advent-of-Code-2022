@@ -4,6 +4,8 @@ open System
 open System.IO
 open Regex
 
+let [<Literal>] inputFilePath = "Day5/Input.txt"
+
 type ColumnId = ColumnId of int
 type Crate = Crate of char
 module Crate =
@@ -112,8 +114,8 @@ module Part1 =
                     loop (moveCrate acc instruction.From instruction.To) (iterations - 1)
             loop columns instruction.NumberOfCrates
         
-    let run inputFile =
-        let columnData, instructionData = getDataFromFile inputFile
+    let run () =
+        let columnData, instructionData = getDataFromFile inputFilePath
         (getColumns columnData, getInstructions instructionData)
         ||> performProcedure movementFolder
         |> getTopCrates
@@ -139,8 +141,8 @@ module Part2 =
             |> replaceColumn columnTo
             
             
-    let run inputFile =
-        let columnData, instructionData = getDataFromFile inputFile
+    let run () =
+        let columnData, instructionData = getDataFromFile inputFilePath
         (getColumns columnData, getInstructions instructionData)
         ||> performProcedure  movementFolder
         |> getTopCrates

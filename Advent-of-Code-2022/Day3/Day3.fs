@@ -2,6 +2,8 @@ module Day3
 
 open System.IO
 
+let [<Literal>] inputFilePath = "Day3/Input.txt"
+
 type ItemType = ItemType of char
 
 module ItemType =
@@ -64,8 +66,8 @@ module Part1 =
             rucksack.Compartment2 |> List.map Item.getItemType
             
             
-    let run inputFile =
-        getRucksacksFromFile inputFile
+    let run () =
+        getRucksacksFromFile inputFilePath
         |> List.map CompartmentalisedRucksack.ofRucksack
         |> List.collect (CompartmentalisedRucksack.getItemsTypes |>> getIntersectingItemTypes)
         |> List.sumBy ItemType.getPriority
@@ -97,8 +99,8 @@ module Part2 =
         List.chunkBySize groupSize
         >> List.map Group
     
-    let run inputFile =
-        getRucksacksFromFile inputFile
+    let run () =
+        getRucksacksFromFile inputFilePath
         |> splitIntoGroups 3
         |> List.map Group.findCommonItemType
         |> List.sumBy ItemType.getPriority

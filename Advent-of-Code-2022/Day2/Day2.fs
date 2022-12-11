@@ -2,6 +2,8 @@ module Day2
 
 open System.IO
 
+let [<Literal>] inputFilePath = "Day2/Input.txt"
+
 type EncryptedValue = EncryptedValue of string
 
 type Hand =
@@ -98,8 +100,8 @@ module Part1 =
           Response = response
           Score = Round.calculateScore opponent response }
         
-    let run inputFile =
-        getEncryptedValuesFromFile inputFile
+    let run () =
+        getEncryptedValuesFromFile inputFilePath
         |> List.map roundOfEncryptedValues
         |> List.sumBy (fun x -> x.Score)
         
@@ -126,7 +128,7 @@ module Part2 =
           Response = response
           Score = Round.calculateScore opponent response }
     
-    let run inputFile =
-        getEncryptedValuesFromFile inputFile
+    let run () =
+        getEncryptedValuesFromFile inputFilePath
         |> List.map roundOfEncryptedValues
         |> List.sumBy (fun x -> x.Score)

@@ -3,6 +3,7 @@ module Day7
 open System.IO
 open Regex
 
+let [<Literal>] inputFilePath = "Day7/Input.txt"
 
 [<AutoOpen>]
 module Domain =
@@ -158,8 +159,8 @@ module Part1 =
         loop dir
         |> List.sum
     
-    let run inputFile =
-        getFileTree inputFile
+    let run () =
+        getFileTree inputFilePath
         |> sumDirectorySizesWithMaxValue 100000
         
         
@@ -184,8 +185,8 @@ module Part2 =
         loop dir
         |> List.min
     
-    let run inputFile =
-        let fileTree = getFileTree inputFile
+    let run () =
+        let fileTree = getFileTree inputFilePath
         let unusedSpace = diskSpace - fileTree.Size.Value
         let spaceToFreeUp = spaceRequired - unusedSpace
         findSmallestDirectorySizeOverMinValue spaceToFreeUp fileTree

@@ -1,2 +1,2 @@
-﻿Day8.Part2.run "Day8/Input.txt"
+﻿Day8.Part2.run()
 |> printfn "Result: %A"

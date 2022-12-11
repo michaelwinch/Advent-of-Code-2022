@@ -2,6 +2,8 @@ module Day1
 
 open System.IO
 
+let [<Literal>] inputFilePath = "Day1/Input.txt"
+
 type Calories = Calories of int
     with static member (+) (Calories x, Calories y) = Calories (x + y)
          static member Zero
@@ -30,15 +32,15 @@ let getElvesFromFile inputFile =
         |> List.mapi Elf.ofIntList
 
 module Part1 =
-    let run inputFile =
-        getElvesFromFile inputFile
+    let run() =
+        getElvesFromFile inputFilePath
         |> List.maxBy (fun x -> x.TotalCalories)
         |> fun x -> x.TotalCalories
         
         
 module Part2 =
-    let run inputFile =
-        getElvesFromFile inputFile
+    let run() =
+        getElvesFromFile inputFilePath
         |> List.sortByDescending (fun x -> x.TotalCalories)
         |> List.take 3
         |> List.sumBy (fun x -> x.TotalCalories)

@@ -2,6 +2,8 @@ module Day4
 
 open System.IO
 
+let [<Literal>] inputFilePath = "Day4/Input.txt"
+
 type SectionId = SectionId of int
 
 type SectionAssignment =
@@ -39,8 +41,8 @@ module Part1 =
             doesAssignmentFullyOverlap x y || doesAssignmentFullyOverlap y x
             
             
-    let run inputFile =
-        getSectionAssignmentPairsFromFile inputFile
+    let run () =
+        getSectionAssignmentPairsFromFile inputFilePath
         |> List.countBy SectionAssignmentPair.doAssignmentsFullyOverlap
         |> Map
         |> Map.find true
@@ -55,8 +57,8 @@ module Part2 =
             doesAssignmentPartiallyOverlap x y || doesAssignmentPartiallyOverlap y x
             
             
-    let run inputFile =
-        getSectionAssignmentPairsFromFile inputFile
+    let run () =
+        getSectionAssignmentPairsFromFile inputFilePath
         |> List.countBy SectionAssignmentPair.doAssignmentsPartiallyOverlap
         |> Map
         |> Map.find true

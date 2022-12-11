@@ -2,6 +2,7 @@ module Day6
 
 open System.IO
 
+let [<Literal>] inputFilePath = "Day6/Input.txt"
    
 let getDataFromFile inputFile =
     inputFile
@@ -17,12 +18,12 @@ let findMarker markerLength data =
     
 
 module Part1 =
-    let run inputFile =
-        getDataFromFile inputFile
+    let run () =
+        getDataFromFile inputFilePath
         |> findMarker 4
         
 
 module Part2 =
-    let run inputFile =
-        getDataFromFile inputFile
+    let run () =
+        getDataFromFile inputFilePath
         |> findMarker 14

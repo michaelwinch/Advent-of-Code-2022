@@ -3,6 +3,7 @@ module Day8
 open System.IO
 open Microsoft.FSharp.Core
 
+let [<Literal>] inputFilePath = "Day8/Input.txt"
 
 type Tree =
     { XPosition: int
@@ -88,8 +89,8 @@ module Part1 =
             || isTreeVisibleInLine tree.Height (TreeData.getTreesEastOfPos data pos)
             || isTreeVisibleInLine tree.Height (TreeData.getTreesWestOfPos data pos)
 
-    let run inputFile =
-        let data = getTreeData inputFile
+    let run () =
+        let data = getTreeData inputFilePath
         data.Trees
         |> List.filter (isTreeVisible data)
         |> List.length
@@ -126,8 +127,8 @@ module Part2 =
               West = calculateViewingDistanceInLine (TreeData.getTreesWestOfPos data pos) tree }
             
     
-    let run inputFile =
-        let data = getTreeData inputFile
+    let run () =
+        let data = getTreeData inputFilePath
         data.Trees
         |> List.map (ViewingDistance.calculate data >> ViewingDistance.calculateScenicScore)
         |> List.max
